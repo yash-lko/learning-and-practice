@@ -2,7 +2,7 @@ name: Daily Learning Updates
 
 on:
   schedule:
-    - cron: '30 8 * * *'   # ~2 PM IST
+    - cron: '30 8 * * *'
   workflow_dispatch:
 
 jobs:

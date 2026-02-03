@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
@@ -26,10 +24,8 @@ jobs:
       - name: Update learning log
         run: python update_notes.py
 
-      - name: Commit changes
+      - name: Commit & Push
         run: |
-          git add .
-          git commit -m "Update learning notes" || echo "No changes to commit"
-
-      - name: Push changes
-        run: git push origin main
+          git add daily_log.txt
+          git commit -m "Update daily learning log" || echo "No changes"
+          git push origin main

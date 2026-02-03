@@ -22,7 +22,7 @@ jobs:
           git config user.email "yashwantbit@gmail.com"
 
       - name: Update learning log
-        run: python commit.py
+        run: python update_notes.py
 
       - name: Commit & Push
         run: |

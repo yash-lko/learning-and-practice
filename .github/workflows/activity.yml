@@ -1,0 +1,32 @@
+name: Daily Activity Bot
+
+on:
+  schedule:
+    - cron: '30 8 * * *'   # Roz 8:30 UTC (~2 PM IST)
+  workflow_dispatch:
+
+jobs:
+  commit-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Git identity setup
+        run: |
+          git config user.name "Yashwant Nishad"
+          git config user.email "yashwantbit@gmail.com"
+
+      - name: Run commit script
+        run: |
+          python commit.py
+
+      - name: Push changes
+        run: |
+          git push

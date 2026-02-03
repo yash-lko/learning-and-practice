@@ -21,7 +21,7 @@ jobs:
           git config user.name "Yashwant Nishad"
           git config user.email "yashwantbit@gmail.com"
 
-      - name: Update learning log
+      - name: Run update notes
         run: python update_notes.py
 
       - name: Commit & Push

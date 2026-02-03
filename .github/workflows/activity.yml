@@ -1,9 +1,12 @@
 name: Daily Learning Updates
 
 on:
-  schedule:
-    - cron: '30 8 * * *'
   workflow_dispatch:
+  schedule:
+    - cron: '50 15 * * *'   # 09:20 PM IST
+
+permissions:
+  contents: write
 
 jobs:
   update-learning:

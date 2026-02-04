@@ -3,7 +3,7 @@ name: Daily Learning Updates
 on:
   workflow_dispatch:
   schedule:
-   - cron: '3 5 * * *'
+  - cron: '40 18 * * *'   # 12:10 AM IST
 
 permissions:
   contents: write

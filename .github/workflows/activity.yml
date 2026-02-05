@@ -3,7 +3,7 @@ name: Daily Learning Updates
 on:
   workflow_dispatch:
   schedule:
-  - cron: '40 18 * * *'   # 12:10 AM IST
+    - cron: '40 18 * * *'   # 12:10 AM IST
 
 permissions:
   contents: write
@@ -15,20 +15,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
       - name: Configure Git
         run: |
           git config user.name "Yashwant Nishad"
           git config user.email "yashwantbit@gmail.com"
 
-      - name: Run update notes
-        run: python update_notes.py
+      - name: Force daily update
+        run: |
+          echo "Last update (UTC): $(date -u)" >> daily_log.txt
 
       - name: Commit & Push
         run: |
-          git add daily_log.txt
-          git commit -m "Update daily learning log" || echo "No changes"
+          git add .
+          git commit -m "Daily learning update $(date -u)" || echo "No changes"
           git push origin main

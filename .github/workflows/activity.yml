@@ -29,6 +29,7 @@ jobs:
 
       - name: Commit & Push
         run: |
+          git pull --rebase origin main
           git add .
           git commit -m "Daily learning update $(date -u)" || exit 0
-          git push origin HEAD:main
+          git push origin main
